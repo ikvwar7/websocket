@@ -12,8 +12,8 @@ public class UserController {
 
     @MessageMapping("/user")
     @SendTo("/topic/user")
-    public UserResponse getUser(User user) {
-
+    public UserResponse getUser(User user) throws InterruptedException{
+        Thread.sleep(3000);
         return new UserResponse("Hi " + user.getName());
     }
 }
